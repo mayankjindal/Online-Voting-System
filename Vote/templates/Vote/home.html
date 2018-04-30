@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+    {% load static %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, iniital-scale=1;">
+<title>Chunaav</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'Vote/home.css' %}">
+<style>
+footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #f4511e;
+}
+.navbar-brand{
+  float: none;
+</style>
+</head>
+<body>
+   <nav class="navbar navbar-default navbar-fixed-top">
+     <div class="container-fluid">
+       <div class=" navbar-header">
+           <img src="{% static 'Vote/logo.jpg' %}" alt="some text" width=50 height=50>
+           <a class="navbar-brand" href="#">Chunaav</a>
+       </div>
+      <ul class="nav navbar-nav">
+       <li class="active"><a href="#">Home</a></li>
+       <li><a href="{% url 'Vote:vote' %}">Vote</a></li>
+       <li><a href="{% url 'Vote:results' %}">Results</a> </li>
+	   <li><a href ="{% url 'Vote:about' %}">About</a></li>
+	   <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">English
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'Vote:home_spanish' %}">Spanish</a></li>
+          <li><a href="{% url 'Vote:home_german' %}">German</a></li>
+          <li><a href="{% url 'Vote:home_hindi' %}">Hindi</a></li>
+        </ul>
+      </li>
+       </ul>
+
+        {% if user.is_authenticated %}
+       <ul class="nav navbar-nav navbar-right">
+       <li><a href="{% url 'Vote:logout' %}"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+       </ul>
+         {% else %}
+         <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'Vote:login' %}"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+        </ul>
+         {% endif %}
+     </div>
+    </nav>
+   <div class="page-header bg-6">
+     <h1 align="center" >Chunaav:the most popular voting website for creating polls & </h1>
+	 <h1 align="center">coordinating meetings</h1>
+   </div>
+   <!----row column---->
+   <div class="row">
+     <div class="col-lg-4" class="slideanim"><img src="{% static 'Vote/voting.jpeg' %}" class="img-thumbnail" ></div>
+	 <div class="col-lg-8"><h4>The online voting website Chunaav was founded in Switzerland in 2007 and just two years later was named one of the best in the category Web Services & Applications of the 13th Annual Webby Awards.Moreover, Doodle has been pleasing millions of users for quite some time: the voting website crossed the 10 million user mark in October 2011, and exceeded 15 million users in January of 2013. The sheer popularity of this voting website proves that it offers a <strong>great service that’s easy to use</strong> and at the right price – free! – which ensures that happy users keep returning.
+     </h4></div>
+	</div>
+    <div class="row bg-5" >
+     <div class="col-lg-8" class="slideanim"><h2>   What makes this website  so special?</h2>
+      <h4>Chunaav doesn’t limit the number of polls you can create. Unlike the vast majority of voting websites you can continue using the free service as often as you’d like. It’s a quick and easy way to organise RSVPs for a party or let your colleagues cast their vote on where the next work party should be held.
+         </br></br>Chunaav has a very minimalistic, user-friendly design. If you sign up for a premium account, you can slightly alter the voting website template, but the basic flow of adding information and the layout of the online voting ballot remains the same. </br></br>There’s no hassle, no fuss, and no lengthy steps asking you to fill out information. In fact, you don’t even have to sign up for an account (which is also free). This voting website doesn’t need your mobile number, doesn’t save your email address for sending newsletters and would never sell your contact information to third party advertisers!
+	   </h4></div>
+	    <div class="col-lg-4"><img src="{% static 'Vote/e_vote.jpg' %}" class="img-thumbnail" ></div>
+	  </div>
+	  </div>
+	  <div class="row">
+		<div class="col-lg-12" align="center"><h2>Voting Just a Click Away</h2>
+		<h4 align="center">Chunaav has extra features such as the free MeetMe service which is a contact centre to coordinate meetings. There’s also a mobile application, so that if you’re on the go, you don’t have to pull up the voting website in your browser but just open the app and cast your vote or schedule an appointment within seconds. It’s so easy to use and costs nothing: so why not give Doodle a try for your next poll?
+		</h4><br>
+        <a href="{% url 'Vote:vote' %}"><button type="button" class="btn1">Vote</button><br><br></a>
+		</div>
+	   </div>
+
+		 <br>
+		 <br>
+
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+});
+</script>
+	<div class="container-fluid bg-4">
+  <h2 class="text-center">CONTACT</h2>
+  <div class="row row2">
+    <div class="col-sm-5">
+      <p>Contact us and we'll get back to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> BML Munjal Univeristy</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +91 9953918594</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> abhinavchopra22@gmail.com</p>
+    </div>
+    <div class="col-sm-7">
+      <div class="row row2">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+      <div class="row row2">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<footer class="container-fluid  bg-4 text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>MADE WITH SKILL! NOT LOVE.</a></p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+    {% load static %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, iniital-scale=1;">
+<title>Chunaav</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'Vote/home.css' %}">
+<style>
+footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #f4511e;
+}
+.navbar-brand{
+  float: none;
+</style>
+</head>
+<body>
+   <nav class="navbar navbar-default navbar-fixed-top">
+     <div class="container-fluid">
+       <div class=" navbar-header">
+           <img src="{% static 'Vote/logo.jpg' %}" alt="some text" width=50 height=50>
+           <a class="navbar-brand" href="#">Chunaav</a>
+       </div>
+      <ul class="nav navbar-nav">
+       <li class="active"><a href="#">होम</a></li>
+       <li><a href="{% url 'Vote:vote' %}">वोट</a></li>
+       <li><a href="{% url 'Vote:results' %}">Results</a> </li>
+	   <li><a href ="{% url 'Vote:about' %}">About</a></li>
+	   <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hindi
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'Vote:home_spanish' %}">Spanish</a></li>
+          <li><a href="{% url 'Vote:home_german' %}">German</a></li>
+          <li><a href="{% url 'Vote:home' %}">English</a></li>
+
+        </ul>
+      </li>
+       </ul>
+
+        {% if user.is_authenticated %}
+       <ul class="nav navbar-nav navbar-right">
+       <li><a href="{% url 'Vote:logout' %}"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+       </ul>
+         {% else %}
+         <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'Vote:login' %}"><span class="glyphicon glyphicon-log-in"></span>लॉग इन</a></li>
+        </ul>
+         {% endif %}
+     </div>
+    </nav>
+   <div class="page-header bg-6">
+     <h1 align="center" >डूडल: चुनाव बनाने के लिए सबसे लोकप्रिय मतदान वेबसाइट  </h1>
+	 <h1 align="center">बैठक समन्वय</h1>
+   </div>
+   <!----row column---->
+   <div class="row">
+     <div class="col-lg-4" class="slideanim"><img src="{% static 'Vote/voting.jpeg' %}" class="img-thumbnail" ></div>
+	 <div class="col-lg-8"><h4>ऑनलाइन वोटिंग वेबसाइट डूडल की स्थापना 2007 में स्विट्ज़रलैंड में हुई थी और केवल दो साल बाद 13 वीं वार्षिक वेबबी पुरस्कारों की श्रेणी में वेब सर्विसेज और एप्लीकेशन श्रेणी में सबसे अच्छा नाम दिया गया था। इसके अलावा, डूडल लाखों उपयोगकर्ताओं को काफी समय से खुश कर रहा है: मतदान वेबसाइट अक्टूबर 2011 में 10 मिलियन उपयोगकर्ता अंक पार कर गई, और जनवरी 2013 में 15 मिलियन उपयोगकर्ताओं से अधिक हो गई। इस मतदान वेबसाइट की बेहद लोकप्रियता साबित करती है कि यह एक प्रदान करता है <strong>महान सेवा जो उपयोग में आसान है</strong> और सही कीमत पर - मुफ़्त! - जो सुनिश्चित करता है कि खुश उपयोगकर्ता लौटते रहें।
+     </h4></div>
+	</div>
+    <div class="row bg-5" >
+     <div class="col-lg-8" class="slideanim"><h2> इस वेबसाइट को इतना खास बनाता है क्या?</h2>
+      <h4>डूडल आपके द्वारा बनाए जा सकने वाले चुनावों की संख्या को सीमित नहीं करता है। वोटिंग वेबसाइटों की विशाल बहुमत के विपरीत आप जितनी बार चाहें मुफ्त सेवा का उपयोग जारी रख सकते हैं। यह किसी पार्टी के लिए आरएसवीपी को व्यवस्थित करने का एक तेज़ और आसान तरीका है या अपने सहयोगियों को अपना वोट दें जहां अगली कार्य पार्टी आयोजित की जानी चाहिए।
+         </br></br>डूडल का एक बहुत ही सरल, उपयोगकर्ता के अनुकूल डिजाइन है। यदि आप प्रीमियम खाते के लिए साइन अप करते हैं, तो आप वोटिंग वेबसाइट टेम्पलेट को थोड़ा बदल सकते हैं, लेकिन जानकारी जोड़ने का मूल प्रवाह और ऑनलाइन वोटिंग मतपत्र का लेआउट वही रहता है। </br></br>कोई परेशानी नहीं है, कोई फंसा नहीं है, और जानकारी भरने के लिए आपको कोई लंबा कदम नहीं है। वास्तव में, आपको किसी खाते के लिए साइन अप भी नहीं करना पड़ता है (जो भी मुफ़्त है)। इस मतदान वेबसाइट को आपके मोबाइल नंबर की आवश्यकता नहीं है, न्यूज़लेटर्स भेजने के लिए आपका ईमेल पता सहेजता नहीं है और आपकी संपर्क जानकारी को तीसरे पक्ष के विज्ञापनदाताओं को कभी नहीं बेचेंगे!
+	   </h4></div>
+	    <div class="col-lg-4"><img src="{% static 'Vote/e_vote.jpg' %}" class="img-thumbnail" ></div>
+	  </div>
+	  </div>
+	  <div class="row">
+		<div class="col-lg-12" align="center"><h2>बस एक क्लिक दूर मतदान</h2>
+		<h4 align="center">डूडल में अतिरिक्त मीटिंग्स जैसी अतिरिक्त सुविधाएं हैं जो मीटिंग्स को समन्वयित करने के लिए एक संपर्क केंद्र है। एक मोबाइल एप्लिकेशन भी है, ताकि यदि आप चल रहे हों, तो आपको अपने ब्राउज़र में वोटिंग वेबसाइट खींचने की ज़रूरत नहीं है, लेकिन केवल ऐप खोलें और अपना वोट डालें या सेकंड के भीतर अपॉइंटमेंट शेड्यूल करें। इसका उपयोग करना इतना आसान है और कुछ भी लागत नहीं है: तो डूडल को अपने अगले चुनाव या प्रश्नावली के लिए क्यों न दें?
+		</h4><br>
+        <a href="{% url 'Vote:vote' %}"><button type="button" class="btn btn-basic">वोटिंग बनाएं</button><br><br></a>
+		</div>
+	   </div>
+
+		 <br>
+		 <br>
+
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+});
+</script>
+	<div class="container-fluid bg-4">
+  <h2 class="text-center">CONTACT</h2>
+  <div class="row row2">
+    <div class="col-sm-5">
+      <p>हमसे संपर्क करें और हम 24 घंटे के भीतर आप पर वापस आ जाएंगे।</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> BML Munjal Univeristy</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +91 9953918594</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> abhinavchopra22@gmail.com</p>
+    </div>
+    <div class="col-sm-7">
+      <div class="row row2">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+      <div class="row row2">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<footer class="container-fluid  bg-4 text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>MADE WITH SKILL! NOT LOVE.</a></p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+!doctype html>
+<html>
+{% load static %}
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, iniital-scale=1;">
+<title>Chunaav</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<link rel="stylesheet" type="text/css" href="{% static 'Vote/credits.css' %}">
+<link rel="shortcut icon" type="image/x-icon" href="logo.jpg" />
+    <style>
+
+.navbar-brand{
+  float: none;
+</style>
+</head>
+<body>
+   <nav class="navbar navbar-default navbar-fixed-top">
+     <div class="container-fluid">
+       <div class=" navbar-header">
+           <img src="{% static 'Vote/logo.jpg' %}" width=50 height=50>
+           <a class="navbar-brand" href="#">Chunaav</a>
+	   </div>
+      <ul class="nav navbar-nav">
+       <li><a href="{% url 'Vote:home' %}">Home</a></li>
+       <li><a href="{% url 'Vote:vote' %}">Vote</a></li>
+       <li><a href="{% url 'Vote:results' %}">Results</a> </li>
+	   <li class="active"><a href ="{% url 'Vote:about' %}">About</a></li>
+	   <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">English
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Spanish</a></li>
+          <li><a href="#">German</a></li>
+          <li><a href="#">Hindi</a></li>
+        </ul>
+      </li>
+       </ul>
+
+      {% if user.is_authenticated %}
+       <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'Vote:logout' %}"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+       </ul>
+      {% else %}
+       <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'Vote:login' %}"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+       </ul>
+      {% endif %}
+     </div>
+    </nav>
+	<div class="page-header bg-2">
+        <h1 align="center" ><strong>Chunaav: The most popular voting website for creating polls & </strong></h1>
+        <h1 align="center"><strong>coordinating meetings</strong></h1>
+   </div>
+   <!----row column---->
+   <div class="row bg-10">
+              <div class="col-lg-1"></div>
+     <div class="col-lg-4" class="slideanim" class="well"><img src="{% static 'Vote/logo.jpg' %}" class="img-thumbnail" ></div>
+	 <div class="col-lg-6"><h3 align="center"><strong>Website Designed By The Chunaav Team. Dedicated towards enabling fair elections.</strong></h3>
+           <h4><br><br><strong>*  Mayank Jindal</strong></h4>
+           <h4><br><strong>*  Apoorv Agarwal</strong></h4>
+           <h4><br><strong>*  Abhinav Chopra</strong></h4>
+           <h4><br><strong>*  Divyanshu Gupta</strong></h4>
+           <h4><br><strong>*  Akshay Garg</strong></h4>
+
+	 </div>
+	 </div>
+<footer class="container-fluid  bg-4 text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>MADE WITH SKILL! NOT LOVE.</a></p>
+</footer>
+
+	
+	
+</body>
+</html>
+	
